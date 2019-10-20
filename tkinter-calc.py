@@ -36,6 +36,8 @@ def click_event(key):
         # attempt to evaluate results
         try:
             result = eval(display.get())
+            display.delete(len(display.get()) - 2, tk.END)
+            print(display.get())
             display.insert(tk.END, " = " + str(result))
         except:
             display.insert(tk.END, "   Error, use only valid chars")
