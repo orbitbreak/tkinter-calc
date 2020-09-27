@@ -1,4 +1,9 @@
-import Tkinter as tk
+import tkinter as tk
+import ctypes
+
+# to avoid blurriness in the application when run.
+import ctypes
+ctypes.windll.shcore.SetProcessDpiAwareness(1)
 
 calc = tk.Tk()
 calc.title("CrappyCalc")
