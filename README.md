@@ -1,1 +1,1 @@
-A very basic calculator implemented in Python using Tkinter
+A Very basic and user friendly calculator, created using Tkinter in python
