@@ -1,8 +1,10 @@
-import Tkinter as tk
+from tkinter import *
 
-calc = tk.Tk()
+#Title of the program.
+calc =Tk()
 calc.title("CrappyCalc")
 
+#Interface of the program.
 buttons = [
 '7',  '8',  '9',  '*',  'C',
 '4',  '5',  '6',  '/',  'Neg',
@@ -15,14 +17,14 @@ col = 0
 for i in buttons:
     button_style = 'raised'
     action = lambda x = i: click_event(x)
-    tk.Button(calc, text = i, width = 7, height = 7, relief = button_style, command = action) \
+    Button(calc, text = i, width = 7, height = 7, relief = button_style, command = action) \
 		.grid(row = row, column = col, sticky = 'nesw', )
     col += 1
     if col > 4:
         col = 0
         row += 1
 
-display = tk.Entry(calc, width = 40, bg = "white")
+display = Entry(calc, width = 40, bg = "white")
 display.grid(row = 0, column = 0, columnspan = 5)
 
 def click_event(key):
@@ -31,36 +33,36 @@ def click_event(key):
     if key == '=':
         # safeguard against integer division
         if '/' in display.get() and '.' not in display.get():
-            display.insert(tk.END, ".0")
+            display.insert(END, ".0")
 			
         # attempt to evaluate results
         try:
             result = eval(display.get())
-            display.insert(tk.END, " = " + str(result))
+            display.insert(END, " = " + str(result))
         except:
-            display.insert(tk.END, "   Error, use only valid chars")
+            display.insert(END, "   Error, use only valid chars")
 			
 	# C -> clear display		
     elif key == 'C':
-        display.delete(0, tk.END)
+        display.delete(0,END)
 		
 		
 	# $ -> clear display		
     elif key == '$':
-        display.delete(0, tk.END)
-        display.insert(tk.END, "$$$$C.$R.$E.$A.$M.$$$$")
+        display.delete(0,END)
+        display.insert(END, "$$$$C.$R.$E.$A.$M.$$$$")
 		
 
 	# @ -> clear display		
     elif key == '@':
-        display.delete(0, tk.END)
-        display.insert(tk.END, "wwwwwwwwwwwwwwwwebsite")		
+        display.delete(0,END)
+        display.insert(END, "wwwwwwwwwwwwwwwwebsite")		
 
 		
 	# neg -> negate term
     elif key == 'neg':
         if '=' in display.get():
-            display.delete(0, tk.END)
+            display.delete(0,END)
         try:
             if display.get()[0] == '-':
                 display.delete(0)
@@ -72,8 +74,8 @@ def click_event(key):
 	# clear display and start new input		
     else:
         if '=' in display.get():
-            display.delete(0, tk.END)
-        display.insert(tk.END, key)
+            display.delete(0,END)
+        display.insert(END, key)
 
 # RUNTIME
 calc.mainloop()
