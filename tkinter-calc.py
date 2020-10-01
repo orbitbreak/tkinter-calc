@@ -1,4 +1,5 @@
-import Tkinter as tk
+# import Tkinter as tk --------> it is tkinter not 'Tkinter'
+import tkinter as tk 
 
 calc = tk.Tk()
 calc.title("CrappyCalc")
@@ -22,7 +23,8 @@ for i in buttons:
         col = 0
         row += 1
 
-display = tk.Entry(calc, width = 40, bg = "white")
+# display = tk.Entry(calc, width = 40, bg = "white")
+display = tk.Entry(calc,width=40,bg="white",font=("Arial",20)) #-----> This will improve display
 display.grid(row = 0, column = 0, columnspan = 5)
 
 def click_event(key):
