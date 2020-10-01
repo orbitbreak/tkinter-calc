@@ -1,4 +1,4 @@
-import Tkinter as tk
+import tkinter as tk
 
 calc = tk.Tk()
 calc.title("CrappyCalc")
