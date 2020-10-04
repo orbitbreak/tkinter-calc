@@ -1,9 +1,9 @@
 import Tkinter as tk
 
-calc = tk.Tk()
-calc.title("CrappyCalc")
+cal = tk.Tk()
+cal.title("Intellocalc")
 
-buttons = [
+btn = [
 '7',  '8',  '9',  '*',  'C',
 '4',  '5',  '6',  '/',  'Neg',
 '1',  '2',  '3',  '-',  '$',
@@ -12,10 +12,10 @@ buttons = [
 # set up GUI
 row = 1
 col = 0
-for i in buttons:
-    button_style = 'raised'
-    action = lambda x = i: click_event(x)
-    tk.Button(calc, text = i, width = 7, height = 7, relief = button_style, command = action) \
+for i in btn:
+    btn_style = 'raised'
+    action = lambda x = i: clicked_event(x)
+    tk.Button(calc, text = i, width = 7, height = 7, relief = btn_style, command = action) \
 		.grid(row = row, column = col, sticky = 'nesw', )
     col += 1
     if col > 4:
@@ -25,7 +25,7 @@ for i in buttons:
 display = tk.Entry(calc, width = 40, bg = "white")
 display.grid(row = 0, column = 0, columnspan = 5)
 
-def click_event(key):
+def clicked_event(key):
 
 	# = -> calculate results
     if key == '=':
@@ -76,4 +76,4 @@ def click_event(key):
         display.insert(tk.END, key)
 
 # RUNTIME
-calc.mainloop()
+cal.mainloop()
