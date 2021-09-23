@@ -1,6 +1,9 @@
-import Tkinter as tk
+import tkinter as tk
 
 calc = tk.Tk()
+# calc.resizable(height=10,width=100)
+# calc.minsize(height=500,width=900)
+# calc.maxsize(height=100,width=100)
 calc.title("CrappyCalc")
 
 buttons = [
@@ -15,15 +18,15 @@ col = 0
 for i in buttons:
     button_style = 'raised'
     action = lambda x = i: click_event(x)
-    tk.Button(calc, text = i, width = 7, height = 7, relief = button_style, command = action) \
+    tk.Button(calc, text = i, width = 7, height = 2, relief = button_style, command = action) \
 		.grid(row = row, column = col, sticky = 'nesw', )
     col += 1
     if col > 4:
         col = 0
         row += 1
 
-display = tk.Entry(calc, width = 40, bg = "white")
-display.grid(row = 0, column = 0, columnspan = 5)
+display = tk.Entry(calc,width = 40, bg = "white")
+display.grid(row = 0, column = 0, columnspan = 5,ipady=10)
 
 def click_event(key):
 
